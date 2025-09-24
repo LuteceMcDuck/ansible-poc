@@ -1,0 +1,14 @@
+---
+# Host-specific variables for web01.example.com
+server_role: primary_web
+nginx_worker_processes: 4
+app_instances: 2
+
+# Custom configurations
+custom_modules:
+  - mod_security
+  - mod_headers
+
+# Monitoring
+monitoring_enabled: true
+log_shipping_enabled: true

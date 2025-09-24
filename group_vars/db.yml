@@ -1,0 +1,22 @@
+---
+# Database server specific variables
+db_engine: postgresql
+db_version: 14
+db_name: "{{ app_name }}_db"
+db_user: "{{ app_name }}_user"
+db_port: 5432
+
+# Database connection settings
+db_max_connections: 100
+db_shared_buffers: 256MB
+db_effective_cache_size: 1GB
+
+# Backup settings
+db_backup_path: /var/backups/postgresql
+db_backup_retention: 7
+
+# Security settings
+db_ssl: true
+db_listen_addresses: "localhost"
+db_allowed_hosts:
+  - "{{ hostvars[groups['web'][0]]['ansible_default_ipv4']['address'] }}"

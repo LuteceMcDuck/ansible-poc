@@ -1,0 +1,35 @@
+---
+- name: Deploy application
+  hosts: web
+  become: yes
+  vars:
+    app_version: "{{ version | default('latest') }}"
+  tasks:
+    - name: Stop application service
+      service:
+        name: myapp
+        state: stopped
+      tags: deploy
+
+    - name: Deploy new version
+      include_role:
+        name: application
+        tasks_from: deploy
+      vars:
+        deploy_version: "{{ app_version }}"
+      tags: deploy
+
+    - name: Start application service
+      service:
+        name: myapp
+        state: started
+      tags: deploy
+
+    - name: Health check
+      uri:
+        url: "http://{{ ansible_host }}/health"
+        method: GET
+        status_code: 200
+      retries: 5
+      delay: 10
+      tags: deploy

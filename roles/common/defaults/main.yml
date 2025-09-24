@@ -1,0 +1,11 @@
+---
+common_packages:
+  - curl
+  - wget
+  - vim
+  - git
+  - htop
+  - unzip
+
+app_user: appuser
+system_timezone: UTC

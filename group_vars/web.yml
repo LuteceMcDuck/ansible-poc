@@ -1,0 +1,20 @@
+---
+# Web server specific variables
+nginx_worker_processes: auto
+nginx_worker_connections: 1024
+nginx_client_max_body_size: 10m
+
+# SSL/TLS settings
+ssl_certificate_path: /etc/ssl/certs/{{ app_name }}.crt
+ssl_certificate_key_path: /etc/ssl/private/{{ app_name }}.key
+ssl_protocols: "TLSv1.2 TLSv1.3"
+
+# Application deployment
+app_version: latest
+app_deploy_path: /opt/{{ app_name }}
+app_config_path: /etc/{{ app_name }}
+
+# Logging
+nginx_access_log: /var/log/nginx/{{ app_name }}_access.log
+nginx_error_log: /var/log/nginx/{{ app_name }}_error.log
+app_log_path: /var/log/{{ app_name }}
