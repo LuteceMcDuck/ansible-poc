@@ -1,0 +1,6 @@
+- name: "Configuration générale HomeLab"
+  hosts: "all"
+  become: "yes"
+  roles:
+    - packages_install
+    - users_create

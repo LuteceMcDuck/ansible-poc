@@ -1,0 +1,6 @@
+
+- name: "Mis à jour de tous les paquets"
+  hosts: "all"
+  become: "yes"
+  roles:
+  - packages_upgrade

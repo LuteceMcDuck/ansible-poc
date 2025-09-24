@@ -1,0 +1,11 @@
+YAML
+- name: "Création/Modification des utilisateurs"
+ansible.builtin.user:
+    name: "{{ item.user }}"
+    comment: "Créé par ansible"
+    groups: "{{ item.groups }}"
+    create_home: yes
+    shell: "{{ role_users_create_Shell }}"
+    append: yes
+with_items:
+  - "{{ role_users_create_UsersAndGroups }}"

@@ -1,0 +1,5 @@
+all:
+  children:
+    HomeLab:
+      hosts:
+        srv1:

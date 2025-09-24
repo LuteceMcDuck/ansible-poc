@@ -1,0 +1,5 @@
+- name: "Installation de packets en dernière version"
+  ansible.builtin.apt:
+    name: "{{ role_packages_install_packages }}"
+    state: "latest"
+    update_cache: "yes"

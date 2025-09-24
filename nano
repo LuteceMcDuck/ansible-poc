@@ -1,0 +1,4 @@
+role_packages_install_packages: "sudo,htop,git,qemu-guest-agent,tree"
+role_users_create_UsersAndGroups:
+  - { user: "jean", groups: "sudo" }
+  - { user: "backupjj", groups: "sudo" }
